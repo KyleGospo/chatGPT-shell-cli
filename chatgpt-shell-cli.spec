@@ -35,6 +35,10 @@ sed -i 's/open "\${image_url}"/xdg-open "\${image_url}"/g' %{execname}
 install -Dm 755 %{execname} -t %{buildroot}%{_bindir}
 
 %post
+echo "The OPENAI_KEY environment variable containing your key is necessary for %{name} to function."
+echo -e "Add the line below to your shell profile with a valid key:\n"
+echo "export OPENAI_KEY=\"your_key_here\""
+echo -e "\nIf needed, detailed instructions are available:\nhttps://github.com/0xacx/chatGPT-shell-cli/tree/main#manual-installation"
 
 %preun
 
